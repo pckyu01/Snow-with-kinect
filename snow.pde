@@ -62,12 +62,14 @@ class Snow
   {
     float dis = dist(pos.x, pos.y, mouseX, mouseY);
     
-    ellipse(mouseX,mouseY,20,20);
+    ellipse(mouseX,mouseY,50,50);
     
-    if(dis < 20)
+    if(dis < 25 + rad/2)
     {
-      pos.x -= (mouseX - pos.x);
-      pos.y -= (mouseY - pos.y);
+      vel.x = 0;
+      vel.y = 0;
+      //pos.x -= (mouseX - pos.x);
+      //pos.y -= (mouseY - pos.y);
     }
   }
   

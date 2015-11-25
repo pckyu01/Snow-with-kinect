@@ -1,22 +1,23 @@
-import org.openkinect.processing.*;
+import kinect4WinSDK.*;
 
 Kinect kinect;
 
-
+PImage hand;
 ArrayList<Snow> snow;
 
 void setup()
 {
-  size(1000,500);
-  background(0);
+  fullScreen();
+  kinect = new Kinect(this);
+  hand = kinect.GetDepth();
   snow = new ArrayList<Snow>();
 }
 
 void draw()
 {
   background(0);
-  
-  snow.add(new Snow(random(0,1000), 0, 5));
+  image(kinect.GetDepth(), 0, 0);
+  snow.add(new Snow(random(0,width), 0, 5));
   
   for (int i = 0; i < snow.size(); i ++)
   {
@@ -28,4 +29,5 @@ void draw()
       snow.remove(100);
     }
   }
+  
 }
