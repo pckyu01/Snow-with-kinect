@@ -11,7 +11,7 @@ class Snow
   {
     pos = new PVector(x, y);
     vel = new PVector(0,0);
-    acc = new PVector(random(-0.01,0.01), 0.01);
+    acc = new PVector(random(-0.01,0.01), 0.03);
     rad = r;
     isAlive = true;
   }
@@ -34,13 +34,13 @@ class Snow
       pos.y += vel.y;
       if (pos.x <= 0 + rad/2)
       {
-        pos.x += rad/9;
+        pos.x += rad;
         vel.x *= -0.5;
         acc.x *= -0.6;
       }
       if (pos.x >= width - rad/2)
       {
-        pos.x -= rad/9;
+        pos.x -= rad;
         vel.x *= -0.5;
         acc.x *= -0.6;
       }
@@ -60,17 +60,6 @@ class Snow
   
   void React()
   {
-    float dis = dist(pos.x, pos.y, mouseX, mouseY);
-    
-    ellipse(mouseX,mouseY,50,50);
-    
-    if(dis < 25 + rad/2)
-    {
-      vel.x = 0;
-      vel.y = 0;
-      //pos.x -= (mouseX - pos.x);
-      //pos.y -= (mouseY - pos.y);
-    }
+    pos.y -= 20;
   }
-  
 }
