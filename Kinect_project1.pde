@@ -4,6 +4,7 @@ import kinect4WinSDK.SkeletonData;
 Kinect kinect;
 
 PImage hand;
+PImage winter;
 ArrayList<Snow> snow;
 ArrayList <SkeletonData> bodies;
 
@@ -13,14 +14,15 @@ void setup()
   kinect = new Kinect(this);
   
   snow = new ArrayList<Snow>();
-  bodies = new ArrayList<SkeletonData>();
 }
 
 void draw()
 {
+  winter = loadImage("winter.jpg");
+  winter.resize(width,height);
   hand = kinect.GetDepth();
   hand.resize(width,height);
-  background(0);
+  background(winter);
 
   image(kinect.GetMask(), 0, 0, width, height);
   
@@ -29,7 +31,7 @@ void draw()
   for (int i = 0; i < snow.size(); i ++)
   {
     
-    if (red(hand.get((int)snow.get(i).pos.x, (int)snow.get(i).pos.y)) < 210)
+    if (red(hand.get((int)snow.get(i).pos.x + 25, (int)snow.get(i).pos.y + 20)) < 210)
     {
       snow.get(i).Move();
     }
@@ -44,4 +46,46 @@ void draw()
       snow.remove(100);
     }
   }  
+}
+
+void appearEvent(SkeletonData _s) 
+{
+  if (_s.trackingState == Kinect.NUI_SKELETON_NOT_TRACKED) 
+  {
+    return;
+  }
+  synchronized(bodies) {
+    bodies.add(_s);
+  }
+}
+
+void disappearEvent(SkeletonData _s) 
+{
+  synchronized(bodies) {
+    for (int i=bodies.size ()-1; i>=0; i--) 
+    {
+      if (_s.dwTrackingID == bodies.get(i).dwTrackingID) 
+      {
+        bodies.remove(i);
+      }
+    }
+  }
+}
+
+void moveEvent(SkeletonData _b, SkeletonData _a) 
+{
+  if (_a.trackingState == Kinect.NUI_SKELETON_NOT_TRACKED) 
+  {
+    return;
+  }
+  synchronized(bodies) {
+    for (int i=bodies.size ()-1; i>=0; i--) 
+    {
+      if (_b.dwTrackingID == bodies.get(i).dwTrackingID) 
+      {
+        bodies.get(i).copy(_a);
+        break;
+      }
+    }
+  }
 }

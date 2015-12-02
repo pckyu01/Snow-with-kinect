@@ -5,6 +5,7 @@ class Snow
   PVector acc;
   float rad;
   boolean isAlive;
+  PImage snowflake;
   
   
   Snow(float x, float y, float r)
@@ -14,12 +15,13 @@ class Snow
     acc = new PVector(random(-0.01,0.01), 0.03);
     rad = r;
     isAlive = true;
+    snowflake = loadImage("snowflake.png");
+    snowflake.resize(50,40);
   }
   
   void Draw()
   {
-    fill(255);
-    ellipse(pos.x, pos.y, rad, rad);
+    image(snowflake, pos.x, pos.y);
   }
   
   void Move()
