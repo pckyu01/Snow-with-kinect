@@ -12,7 +12,7 @@ class Snow
   {
     pos = new PVector(x, y);
     vel = new PVector(0,0);
-    acc = new PVector(random(-0.01,0.01), 0.03);
+    acc = new PVector(random(-0.01,0.01), 0.05);
     rad = r;
     isAlive = true;
     snowflake = loadImage("snowflake.png");
@@ -51,7 +51,7 @@ class Snow
         pos.y += rad/9;
         vel.y *= -0.9;
       }
-      if (pos.y >= height - rad/2)
+      if (pos.y >= height - rad/2 - 50)
       {
         pos.y -= rad/9;
         //vel.y *= -0.9;
