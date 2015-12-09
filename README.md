@@ -1,4 +1,4 @@
-<h1>Unit 3 Final Project: [[Snow]]</h1>
+<h1>Unit 3 Final Project: [[Snow with Kinect]]</h1>
 
 <strong>Interaction</strong>:People can play with their hands. They will be able to stack up the snows as whatever they want.
 
@@ -10,7 +10,9 @@
   <h3>Milestone #1: November 20th, 2015 </h3>
   <strong>Goal:</strong> You should have solid planning done by the end of this milestone.
   <ul>
-    <li>first task : who is doing it (if in team)</li>
+    <li>first task : I have to write basic code without using kinect first.</li>
+    <li>second task : I tried to learn and apply some ArrayList for snowflakes.</li>
+    <li>third task : I applied vectors for snowflaks.</li>
   </ul>
 </div>
 
@@ -18,7 +20,9 @@
   <h3>Milestone #2: November 30th, 2015 </h3>
   <strong>Goal:</strong> You should have a small prototype by the end of this milestone.
   <ul>
-    <li>first task : who is doing it (if in team)</li>
+    <li>first task : I tried to make my program work with my mouse before using kinect</li>
+    <li>second task : I had to fix some bugs on snowflakes like disappear/stuck.</li>
+    <li>third task : I made my program to adjust number snowflakes itself to make less lag.</li>
   </ul>
 </p>
 
@@ -27,6 +31,8 @@
   Milestone #3: December 8th, 2015 (For G block) </h3>
   <strong>Goal:</strong> You should have iterated and improved on your prototype by the end of this milestone.
   <ul>
-    <li>first task : who is doing it (if in team)</li>
+    <li>first task : I connected kinect to my program.</li>
+    <li>second task : Discovered how to apply kinect to my project and make it work.</li>
+    <li>third task : Presentation.</li>
   </ul>
 </div>
